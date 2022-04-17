@@ -1,2 +1,10 @@
-Hello WorldHello World dotcom/n Hello World dotcom
- Hello World dotcom
+
+Election Results
+-------------------------
+Total Votes: 369,711
+-------------------------
+-------------------------
+Winner: Diana DeGette
+Winning Vote Count: 272,892
+Winning Percentage: 73.8%
+-------------------------

@@ -17,7 +17,7 @@ import os
 
 # The data we need to retrieve
 load_file = os.path.join('Resources', 'election_results.csv')
-save_file = os.path.join("analysis", "election_analysis.txt")
+save_file = os.path.join("Analysis", "election_analysis.txt")
 
 total_votes = 0
 candidate_options = []
@@ -51,19 +51,33 @@ with open(load_file) as election_data:
 
         candidate_votes[candidate_name] += 1
 
+
+with open(save_file, 'a') as txt_file:
+
+    # Print the final vote count to the terminal.
+    election_results = (
+        f"\nElection Results\n"
+        f"-------------------------\n"
+        f"Total Votes: {total_votes:,}\n"
+        f"-------------------------\n")
+    print(election_results, end="")
+    # Save the final vote count to the text file.
+    txt_file.write(election_results)
+
     # Print Voting Results
     for candidate in candidate_options:
 
         votes = candidate_votes[candidate]
         vote_percentage = float(votes) / float(total_votes) * 100
-        print(f"{candidate}: received {vote_percentage:.1f}% of the vote. ({votes:,})\n")
+        #print(f"{candidate}: received {vote_percentage:.1f}% of the vote. ({votes:,})\n")
 
         # Determine Winning Candidate
         if votes > winning_count:
             winning_count = votes
             winning_candidate = candidate
             winning_percentage = vote_percentage
-    
+
+
     # Print Winning Candidate
     winning_candidate_summary = (
         f"-------------------------\n"
@@ -71,8 +85,6 @@ with open(load_file) as election_data:
         f"Winning Vote Count: {winning_count:,}\n"
         f"Winning Percentage: {winning_percentage:.1f}%\n"
         f"-------------------------\n")
-
+        
     print(winning_candidate_summary)
-
-
-
+    txt_file.write(winning_candidate_summary)
