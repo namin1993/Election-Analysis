@@ -132,7 +132,7 @@ with open(file_to_save, "w") as txt_file:
 
     candidate_vote_result_header = (
         f"Candidate Vote Results\n"
-        f"------------------------------------------"
+        f"------------------------------------------\n"
     )
     print(candidate_vote_result_header)
     txt_file.write(candidate_vote_result_header)

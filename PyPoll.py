@@ -15,7 +15,7 @@ import random
 import os
 
 
-# The data we need to retrieve
+# Initialize variables
 load_file = os.path.join('Resources', 'election_results.csv')
 save_file = os.path.join("Analysis", "election_analysis.txt")
 
@@ -28,7 +28,7 @@ winning_candidate = ""
 winning_count = 0
 winning_percentage = 0
 
-# read file
+# Read csv file
 with open(load_file) as election_data:
     # Read the file object with the reader function.
     file_reader = csv.reader(election_data)
@@ -88,3 +88,8 @@ with open(save_file, 'a') as txt_file:
         
     print(winning_candidate_summary)
     txt_file.write(winning_candidate_summary)
+
+
+#The voter turnout for each county
+#The percentage of votes from each county out of the total count
+#The county with the highest turnout
